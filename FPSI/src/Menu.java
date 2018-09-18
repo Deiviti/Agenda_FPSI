@@ -55,10 +55,10 @@ public class Menu {
 					    }					    
 						System.out.println("\n\n");
 						System.out.println("Digite o Código da pessoa a ser Alterada:");
-						int del = teclado.nextInt()-1;
-						Pessoa umaPessoaAlterar = listaPessoa.get(del);
+						String del = teclado.nextLine();						
+						Pessoa umaPessoaAlterar = listaPessoa.get(Integer.parseInt(del)-1);
 						System.out.println("Digite novo nome ("+ umaPessoaAlterar.getNome() +"):");
-						umaPessoaAlterar.setNome(teclado.nextLine());
+						umaPessoaAlterar.setNome(teclado.nextLine());						
 						System.out.println("Digite nova idade ("+ umaPessoaAlterar.getIdade() +"):");
 						String idadenovaSTR = teclado.nextLine();
 						umaPessoaAlterar.setIdade(Integer.valueOf(idadenovaSTR));
@@ -126,6 +126,7 @@ public class Menu {
 						System.out.println("Digite Enter para continuar \n");
 						System.out.println("\n\n");
 						teclado.nextLine();
+						System.exit(0);
 						break;				
 			    }		
 			    
