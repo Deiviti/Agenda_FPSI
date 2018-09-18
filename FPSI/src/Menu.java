@@ -16,12 +16,10 @@ public class Menu {
 		while(!op.equals("0")) {
 			
 				System.out.println("  - Escolha uma opção -\n");
-				System.out.println("\n\n");
-				int cont = listaPessoa.size();
-			    for (int x=0; x<cont; x++) {
-			      System.out.printf("Cadastros realizados até o momento: %d\n",x+1, listaPessoa.get(x));
-			      System.out.println("\n\n");
-			    }				
+				System.out.println("\n\n");				
+			    System.out.printf("Cadastros realizados até o momento: %d\n", listaPessoa.size());
+			    System.out.println("\n\n");
+			    			
 			    System.out.println("1 - Incluir");  
 			    System.out.println("2 - Alterar");  
 			    System.out.println("3 - Excluir");  
@@ -53,10 +51,10 @@ public class Menu {
 						
 						int contador = listaPessoa.size();
 					    for (int x=0; x<contador; x++) {
-					      System.out.printf("Posição %d - %s\n", x+1, listaPessoa.get(x));
+					      System.out.printf("Código Agenda:  %d - %s\n", x+1, listaPessoa.get(x));
 					    }					    
 						System.out.println("\n\n");
-						System.out.println("Digite a posição da pessoa a ser Alterada:");
+						System.out.println("Digite o Código da pessoa a ser Alterada:");
 						int del = teclado.nextInt()-1;
 						Pessoa umaPessoaAlterar = listaPessoa.get(del);
 						System.out.println("Digite novo nome ("+ umaPessoaAlterar.getNome() +"):");
@@ -76,7 +74,7 @@ public class Menu {
 						
 						int ct = listaPessoa.size();
 					    for (int x=0; x<ct; x++) {
-					      System.out.printf("Posição %d - %s\n", x+1, listaPessoa.get(x));
+					      System.out.printf("Código Agenda %d - %s\n", x+1, listaPessoa.get(x));
 					    }
 					    System.out.println("Deseja realmente excluir um cadastro?");
 					    System.out.println("Se SIM digite - 1\n\nSe NÃO digite - 2");
@@ -85,7 +83,7 @@ public class Menu {
 					    switch(op) {
 					    case "1":
 					    	System.out.println("\n\n");
-							System.out.println("Digite a posição da pessoa a ser excluída:");
+							System.out.println("Digite o Código da pessoa a ser excluída:");
 							int delete = teclado.nextInt();												
 							listaPessoa.remove(delete-1);
 					    	break;
@@ -98,13 +96,28 @@ public class Menu {
 					case "4": 
 						
 						for (int x=0; x< listaPessoa.size(); x++) {
-					      System.out.printf("Posição %d - %s\n", x+1, listaPessoa.get(x));
+					      System.out.printf("Código Agenda %d - %s\n", x+1, listaPessoa.get(x));
 					    }
 						System.out.println("\n\n");
 						System.out.println("Digite Enter para continuar \n");
 						System.out.println("\n\n");
 						teclado.nextLine();
-						break;				    
+						break;
+						
+					case "5": 
+						
+						System.out.println("Digite Código da pessoa a ser pesquisada");
+						int pesq = teclado.nextInt()-1;						 
+						int li = listaPessoa.size();
+						
+						if(pesq==li) {																		
+								System.out.printf("A pessoa %d - %s\n", li+1, listaPessoa.get(li));
+						}						
+						System.out.println("\n\n");
+						System.out.println("Digite Enter para continuar \n");
+						System.out.println("\n\n");
+						teclado.nextLine();
+						break;		
 					
 					case "0":
 						
